@@ -40,6 +40,10 @@
             height: 100%;
             object-fit: cover;
         }
+        pre {
+            overflow-x: auto;  /* Adds a horizontal scrollbar only when the text overflows */
+            white-space: pre;  /* Keeps the text on a single long line so it triggers the scrollbar */
+        }
         /* Automatic Light/Dark Mode Styling based on system preferences */
         @media (prefers-color-scheme: dark) {
             :root {
