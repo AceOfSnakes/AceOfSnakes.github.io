@@ -1,8 +1,8 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Replace YOUR_GITHUB_USERNAME with your actual GitHub username -->
     <title>Ace Of Snakes | Package Repository</title>
     
     <!-- Load GitHub's Official Primer CSS Framework -->
@@ -40,6 +40,10 @@
             height: 100%;
             object-fit: cover;
         }
+        pre {
+            overflow-x: auto;  /* Adds a horizontal scrollbar only when the text overflows */
+            white-space: pre;  /* Keeps the text on a single long line so it triggers the scrollbar */
+        }
         /* Automatic Light/Dark Mode Styling based on system preferences */
         @media (prefers-color-scheme: dark) {
             :root {
@@ -61,18 +65,15 @@
         <header class="profile-header">
             <div class="avatar-frame">
                 <!-- Dynamically pulls your live GitHub profile avatar -->
-                <img src="https://github.com/AceOfSnakes.png" alt="Profile Avatar">
+                <img src="https://github.com/aceofsnakes.png" alt="Profile Avatar">
             </div>
             <div>
                 <h1 class="f1-light mb-1">Ace Of Snakes</h1>
                 <p class="f4 color-fg-muted">Custom Linux APT & RPM Package Repository</p>
             </div>
         </header>
+
         <!-- Main Layout Split: Content on Left, Meta on Right -->
-        <div class="Layout Layout--sidebarPosition-right Layout--sidebar-narrow">
-            
-            <!-- Left Side: Installation Instructions -->
-            <div class="Layout-main">
         <div class="Layout Layout--sidebarPosition-right Layout--sidebar-narrow">
             
             <!-- Left Side: Installation Instructions -->
@@ -83,20 +84,22 @@
                     </div>
                     <div class="Box-body">
                         <p class="f5 mb-2">Add the repository GPG key and register the source line:</p>
-                        <pre class="color-bg-subtle p-3 border rounded-2 f6"><code>curl -fsSL https://aceofsnakes.github.io/repo.gpg \
-| sudo gpg --dearmor -o /etc/apt/keyrings/aceofsnakes.gpg
-echo "deb [signed-by=/etc/apt/keyrings/aceofsnakes.gpg] https://aceofsnakes.github.io/apt stable main" | sudo tee /etc/apt/sources.list.d/aceofsnakes.list
+                        <pre class="color-bg-subtle p-3 border rounded-2 f6"><code>curl -fsSL https://aceofsnakes.github.io/aceofsnakes.gpg \
+ | sudo gpg --dearmor -o /etc/apt/keyrings/aceofsnakes.gpg
+echo "deb [signed-by=/etc/apt/keyrings/aceofsnakes.gpg] https://aceofsnakes.github.io/apt stable main" \
+ | sudo tee /etc/apt/sources.list.d/aceofsnakes.list
+                            
 sudo apt update</code></pre>
                     </div>
                 </div>
 
-<div class="Box Box--condensed">
-    <div class="Box-header">
-        <h3 class="Box-title">RHEL / Fedora / Rocky Linux (DNF) Installation</h3>
-    </div>
-    <div class="Box-body">
-        <p class="f5 mb-2">Create a repository configuration file under <code>/etc/dnf.repos.d/</code>:</p>
-        <pre class="color-bg-subtle p-3 border rounded-2 f6"><code>sudo tee /etc/dnf.repos.d/aceofsnakes.repo &lt;&lt;EOF
+                <div class="Box Box--condensed">
+                    <div class="Box-header">
+                        <h3 class="Box-title">RHEL / Fedora / Rocky Linux (DNF) Installation</h3>
+                    </div>
+                    <div class="Box-body">
+                        <p class="f5 mb-2">Create a repository configuration file under <code>/etc/dnf.repos.d/</code>:</p>
+                        <pre class="color-bg-subtle p-3 border rounded-2 f6"><code>sudo tee /etc/dnf.repos.d/aceofsnakes.repo &lt;&lt;EOF
 [myrepo]
 name=Ace Of Snakes Repository
 baseurl=https://aceofsnakes.github.io/rpm/
@@ -105,9 +108,9 @@ gpgcheck=0
 EOF
 
 sudo dnf check-update</code></pre>
-    </div>
-</div>
-                
+                    </div>
+                </div>
+            </div>
 
             <!-- Right Side: Sidebar Metadata Card -->
             <div class="Layout-sidebar">
