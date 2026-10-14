@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Replace YOUR_GITHUB_USERNAME with your actual GitHub username -->
+    <title>Ace Of Snakes | Package Repository</title>
+    
+    <!-- Load GitHub's Official Primer CSS Framework -->
+    <link href="https://cloudflare.com" rel="stylesheet" />
+    
+    <style>
+        body {
+            background-color: var(--color-canvas-default);
+            color: var(--color-fg-default);
+            padding-top: 40px;
+        }
+        .repo-container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--color-border-muted);
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+        }
+        .avatar-frame {
+            border: 1px solid var(--color-border-default);
+            border-radius: 50%;
+            overflow: hidden;
+            width: 100px;
+            height: 100px;
+            margin-right: 24px;
+            flex-shrink: 0;
+        }
+        .avatar-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* Automatic Light/Dark Mode Styling based on system preferences */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-canvas-default: #0d1117;
+                --color-canvas-subtle: #161b22;
+                --color-fg-default: #e6edf3;
+                --color-fg-muted: #848d97;
+                --color-border-default: #30363d;
+                --color-border-muted: #21262d;
+                --color-accent-fg: #2f81f7;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="repo-container">
+        <!-- Header Section with your Profile Image -->
+        <header class="profile-header">
+            <div class="avatar-frame">
+                <!-- Dynamically pulls your live GitHub profile avatar -->
+                <img src="https://github.com" alt="Profile Avatar">
+            </div>
+            <div>
+                <h1 class="f1-light mb-1">Ace Of Snakes</h1>
+                <p class="f4 color-fg-muted">Custom Linux APT & RPM Package Repository</p>
+            </div>
+        </header>
+
+        <!-- Main Layout Split: Content on Left, Meta on Right -->
+        <div class="Layout Layout--sidebarPosition-right Layout--sidebar-narrow">
+            
+            <!-- Left Side: Installation Instructions -->
+            <div class="Layout-main">
+                <div class="Box Box--condensed mb-4">
+                    <div class="Box-header">
+                        <h3 class="Box-title">Debian / Ubuntu (APT) Installation</h3>
+                    </div>
+                    <div class="Box-body">
+                        <p class="f5 mb-2">Add the repository GPG key and register the source line:</p>
+                        <pre class="color-bg-subtle p-3 border rounded-2 f6"><code>curl -fsSL https://aceofsnakes.github.io/repo.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/myrepo.gpg
+echo "deb [signed-by=/etc/apt/keyrings/myrepo.gpg] https://aceofsnakes.github.io/apt stable main" | sudo tee /etc/apt/sources.list.d/myrepo.list
+sudo apt update</code></pre>
+                    </div>
+                </div>
+
+                <div class="Box Box--condensed">
+                    <div class="Box-header">
+                        <h3 class="Box-title">RHEL / CentOS / Fedora (RPM) Installation</h3>
+                    </div>
+                    <div class="Box-body">
+                        <p class="f5 mb-2">Create a repo configuration file under <code>/etc/yum.repos.d/</code>:</p>
+                        <pre class="color-bg-subtle p-3 border rounded-2 f6"><code>sudo tee /etc/yum.repos.d/myrepo.repo &lt;&lt;EOF
+[myrepo]
+name=My Custom Custom Repository
+baseurl=https://aceofsnakes.github.io/rpm/
+enabled=1
+gpgcheck=0
+EOF</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Sidebar Metadata Card -->
+            <div class="Layout-sidebar">
+                <div class="Box p-3">
+                    <h4 class="f5 mb-2">Repository Info</h4>
+                    <ul class="list-style-none f6 color-fg-muted">
+                        <li class="mb-2"><strong>Status:</strong> <span class="Label Label--success">Active</span></li>
+                        <li class="mb-2"><strong>Host:</strong> GitHub Pages</li>
+                        <li><strong>Arch:</strong> x86_64, amd64</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
