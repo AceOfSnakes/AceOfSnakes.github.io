@@ -14,10 +14,10 @@ To utilize these packages on your local Linux system, ensure you import the repo
 ### 1. Add APT Repository
 ```bash
 # Download and install the repository key
-curl -sS https://aceofsnakes.github.io/KEY.gpg | sudo gpg --dearmor -o /usr/share/keyrings/my-repo-archive-keyring.gpg
+curl -sS https://aceofsnakes.github.io/KEY.gpg | sudo gpg --dearmor -o /usr/share/keyrings/aceofsnakes.gpg
 
 # Add the repository source list
-echo "deb [signed-by=/usr/share/keyrings/my-repo-archive-keyring.gpg] https://YOUR_GITHUB_USERNAME.github.io/apt stable main" | sudo tee /etc/apt/sources.list.d/my-repo.list
+echo "deb [signed-by=/usr/share/keyrings/aceofsnakes.gpg] https://aceofsnakes.github.io/apt stable main" | sudo tee /etc/apt/sources.list.d/my-repo.list
 
 # Update system listings
 sudo apt update
