@@ -46,6 +46,10 @@
             align-items: center;
             justify-content: space-between;
         }
+        pre {
+            overflow-x: auto;  /* Adds a horizontal scrollbar only when the text overflows */
+            white-space: pre;  /* Keeps the text on a single long line so it triggers the scrollbar */
+        }
         /* Automatic Light/Dark Mode Styling based on system preferences */
         @media (prefers-color-scheme: dark) {
             :root {
@@ -70,7 +74,7 @@
                 <img src="https://github.com/aceofsnakes.png" alt="Profile Avatar">
             </div>
             <div>
-                <h1 class="f1-light mb-1">aceofsnakes</h1>
+                <h1 class="f1-light mb-1">Ace Of Snakes</h1>
                 <p class="f4 color-fg-muted">Custom Linux APT & DNF Package Repository</p>
             </div>
         </header>
@@ -110,7 +114,7 @@ sudo apt update</code></pre>
                         <p class="f5 mb-2">Create a repository configuration file under <code>/etc/dnf.repos.d/</code>:</p>
                         <pre class="color-bg-subtle p-3 border rounded-2 f6 ws-pre-wrap"><code id="dnf-code">sudo tee /etc/dnf.repos.d/aceofsnakes.repo &lt;&lt;EOF
 [aceofsnakes]
-name=AceOfSnakes Custom Repository
+name=Ace Of Snakes Repository
 baseurl=https://aceofsnakes.github.io/rpm/
 enabled=1
 gpgcheck=0
@@ -128,7 +132,7 @@ sudo dnf check-update</code></pre>
                     <ul class="list-style-none f6 color-fg-muted">
                         <li class="mb-2"><strong>Status:</strong> <span class="Label Label--success">Active</span></li>
                         <li class="mb-2"><strong>Host:</strong> GitHub Pages</li>
-                        <li><strong>Arch:</strong> x86_64, amd64</li>
+                        <li><strong>Arch:</strong> x86_64, amd64, aarch64, arm64</li>
                     </ul>
                 </div>
             </div>
