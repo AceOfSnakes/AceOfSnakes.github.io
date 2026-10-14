@@ -82,8 +82,9 @@
                         <p class="f5 mb-2">Add the repository GPG key and register the source line:</p>
                         <pre class="color-bg-subtle p-3 border rounded-2 f6"><code>curl -fsSL https://aceofsnakes.github.io/aceofsnakes.gpg \
  | sudo gpg --dearmor -o /etc/apt/keyrings/aceofsnakes.gpg
-echo "deb [signed-by=/etc/apt/keyrings/myrepo.gpg] https://aceofsnakes.github.io/apt stable main" \
+echo "deb [signed-by=/etc/apt/keyrings/aceofsnakes.gpg] https://aceofsnakes.github.io/apt stable main" \
  | sudo tee /etc/apt/sources.list.d/aceofsnakes.list
+                            
 sudo apt update</code></pre>
                     </div>
                 </div>
