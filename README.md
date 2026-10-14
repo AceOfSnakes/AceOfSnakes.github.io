@@ -26,7 +26,7 @@ sudo apt update
 ### 2. Add RPM Repository
 ```bash
 # Add the repository definition file
-sudo dnf config-manager --add-repo https://aceofsnakes.github.io/rpm/my-repo.repo
+sudo dnf config-manager --add-repo https://aceofsnakes.github.io/rpm/aceofsnakes.repo
 
 # Update package listings
 sudo dnf check-update
