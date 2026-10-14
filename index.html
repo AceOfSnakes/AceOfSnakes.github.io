@@ -73,18 +73,23 @@
             
             <!-- Left Side: Installation Instructions -->
             <div class="Layout-main">
-<div class="Box Box--condensed mb-4">
-    <div class="Box-header">
-        <h3 class="Box-title">Debian / Ubuntu (APT) Installation</h3>
-    </div>
-    <div class="Box-body">
-        <p class="f5 mb-2">Add the repository GPG key and register the source line:</p>
-        <!-- Added ws-pre-wrap class to force text wrapping instead of scrolling -->
-        <pre class="color-bg-subtle p-3 border rounded-2 f6 ws-pre-wrap"><code>curl -fsSL https://github.io | sudo gpg --dearmor -o /etc/apt/keyrings/aceofsnakes.gpg
-echo "deb [signed-by=/etc/apt/keyrings/aceofsnakes.gpg] https://github.io stable main" | sudo tee /etc/apt/sources.list.d/aceofsnakes.list
+        <div class="Layout Layout--sidebarPosition-right Layout--sidebar-narrow">
+            
+            <!-- Left Side: Installation Instructions -->
+            <div class="Layout-main">
+                <div class="Box Box--condensed mb-4">
+                    <div class="Box-header">
+                        <h3 class="Box-title">Debian / Ubuntu (APT) Installation</h3>
+                    </div>
+                    <div class="Box-body">
+                        <p class="f5 mb-2">Add the repository GPG key and register the source line:</p>
+                        <pre class="color-bg-subtle p-3 border rounded-2 f6"><code>curl -fsSL https://aceofsnakes.github.io/repo.gpg \
+| sudo gpg --dearmor -o /etc/apt/keyrings/aceofsnakes.gpg
+echo "deb [signed-by=/etc/apt/keyrings/aceofsnakes.gpg] https://aceofsnakes.github.io/apt stable main" | sudo tee /etc/apt/sources.list.d/aceofsnakes.list
 sudo apt update</code></pre>
-    </div>
-</div>
+                    </div>
+                </div>
+
 <div class="Box Box--condensed">
     <div class="Box-header">
         <h3 class="Box-title">RHEL / Fedora / Rocky Linux (DNF) Installation</h3>
