@@ -246,43 +246,51 @@ sudo zypper refresh</code></pre>
                     <ul class="list-style-none f6 color-fg-muted">
                         <li class="mb-2"><strong>Status:</strong> <span class="Label Label--success">Active</span></li>
                         <li class="mb-2"><strong>Host:</strong> GitHub Pages</li>
-                        <li><strong>Arch:</strong> x86_64, amd64, aarch64, arm64</li>
-                        <li><strong>Packages:</strong> avrpioremote, avrpioremote-qt5, netrc</li>
+                        <li class="mb-3"><strong>Arch:</strong> x86_64, amd64, aarch64, arm64</li>
+
+                        <!-- Packages Section: One package per line -->
+                        <li class="border-top pt-2">
+                            <strong>Packages:</strong>
+                            <ul class="pl-3 mt-1 list-style-none" style="line-height: 1.6;">
+                                <li class="text-mono color-fg-accent">avrpioremote</li>
+                                <li class="text-mono color-fg-accent">avrpioremote-qt5</li>
+                                <li class="text-mono color-fg-accent">netrc</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
 
-        </div>
-    </div>
-
-    <!-- Floating Footer -->
-    <div class="floating-footer">
-        <div class="footer-content">
-            <span>© 2026 Ace Of Snakes</span>
-            <div class="footer-links">
-                <a href="https://aceofsnakes.github.io/apt/pool/main">Browse APT Packages</a>
-                <a href="https://aceofsnakes.github.io/rpm/">Browse RPM Packages</a>
+            <!-- Floating Footer -->
+            <div class="floating-footer">
+                <div class="footer-content">
+                    <span>© 2026 Ace Of Snakes</span>
+                    <div class="footer-links">
+                        <a href="https://aceofsnakes.github.io/apt/pool/main">Browse APT Packages</a>
+                        <a href="https://aceofsnakes.github.io/rpm/">Browse RPM Packages</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <script>
-        function copyToClipboard(elementId, button) {
-            const textToCopy = document.getElementById(elementId).innerText;
+            <script>
+                function copyToClipboard(elementId, button) {
+                    const textToCopy = document.getElementById(elementId).innerText;
 
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                const originalContent = button.innerHTML;
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        const originalContent = button.innerHTML;
 
-                // Switch to a checkmark icon on success
-            button.innerHTML = `<svg class="octicon octicon-check color-fg-success" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg>`;
-            button.classList.add('color-fg-success');
+                        // Switch to a checkmark icon on success
+                        button.innerHTML = `<svg class="octicon octicon-check color-fg-success" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg>`;
+                        button.classList.add('color-fg-success');
 
-            setTimeout(() => {
-                button.innerHTML = originalContent;
-                button.classList.remove('color-fg-success');
-            }, 2000);
-        }).catch(err => {
-            console.error('Failed to copy code block text: ', err);
-            })};
-    </script>
+                        setTimeout(() => {
+                            button.innerHTML = originalContent;
+                            button.classList.remove('color-fg-success');
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy code block text: ', err);
+                    })
+                };
+            </script>
 </body>
+
 </html>
