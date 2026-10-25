@@ -1,0 +1,58 @@
+Package: avrpioremote
+Version: 26.08
+Architecture: arm64
+Maintainer: Ace Of Snakes <AceOfSnakesMain@gmail.com>
+Installed-Size: 1873
+Depends: libc6 (>= 2.38), libgcc-s1 (>= 3.0), libglx0, libopengl0, libqt6core6t64 | libqt6core6 (>= 6.4.0), libqt6gui6t64 | libqt6gui6 (>= 6.1.2), libqt6network6t64 | libqt6network6 (>= 6.4.0), libqt6widgets6t64 | libqt6widgets6 (>= 6.3.0), libqt6xml6t64 | libqt6xml6 (>= 6.1.2), libstdc++6 (>= 14)
+Filename: pool/main/avrpioremote_26.08_arm64.deb
+Size: 787904
+MD5sum: fb641f05dfc309a630e55edde836e314
+SHA1: 982334109ac338f71f8fe82c77e60528e5f0dadd
+SHA256: e99b15a8121061e874fa74cd5c4b03db97b2637d3a5183ab35712fbab6c647cc
+Section: misc
+Priority: optional
+Multi-Arch: foreign
+Homepage: https://github.com/AceOfSnakes/AvrPioRemote
+Description: With this software you are able to control your Pioneer receiver from your PC.
+ The software is developed for the year 2012 devices, but some features may work with older receivers.
+ Tested with VSX-922, SC-2022 and LX-56. Update 2018: Now the new generation is supported too (like LX-701).
+ Qt6 version
+
+Package: avrpioremote-qt5
+Source: avrpioremote
+Version: 26.08
+Architecture: arm64
+Maintainer: Ace Of Snakes <AceOfSnakesMain@gmail.com>
+Installed-Size: 1997
+Depends: libc6 (>= 2.38), libgcc-s1 (>= 3.0), libgl1, libqt5core5t64 | libqt5core5 (>= 5.15.1), libqt5gui5t64 | libqt5gui5 (>= 5.7.0) | libqt5gui5-gles (>= 5.7.0), libqt5network5t64 | libqt5network5 (>= 5.0.2), libqt5widgets5t64 | libqt5widgets5 (>= 5.9.0~beta), libqt5xml5t64 | libqt5xml5 (>= 5.0.2), libstdc++6 (>= 13)
+Filename: pool/main/avrpioremote-qt5_26.08_arm64.deb
+Size: 807884
+MD5sum: 2cc2a1379feedaea04bd38e8de47a038
+SHA1: 788e51ab857270f2c370e7be9daa087769852fd4
+SHA256: 43a0b4d307eb3c32d3a1f05546bfbed5b26b7f9a76280588edd4a21a6209b7eb
+Section: misc
+Priority: optional
+Multi-Arch: foreign
+Homepage: https://github.com/AceOfSnakes/AvrPioRemote
+Description: With this software you are able to control your Pioneer receiver from your PC.
+ The software is developed for the year 2012 devices, but some features may work with older receivers.
+ Tested with VSX-922, SC-2022 and LX-56. Update 2018: Now the new generation is supported too (like LX-701)
+ Qt5 version
+
+Package: netrc
+Version: 26.10
+Architecture: arm64
+Maintainer: Ace Of Snakes <AceOfSnakesMain@gmail.com>
+Installed-Size: 7426
+Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.0), libglx0, libopengl0, libqt6core6t64 | libqt6core6 (>= 6.4.0), libqt6gui6t64 | libqt6gui6 (>= 6.4.0), libqt6network6t64 | libqt6network6 (>= 6.4.0), libqt6opengl6t64 | libqt6opengl6 (>= 6.1.2), libqt6widgets6t64 | libqt6widgets6 (>= 6.3.0), libqt6xml6t64 | libqt6xml6 (>= 6.1.2), libssl3t64 | libssl3 (>= 3.0.0), libstdc++6 (>= 13)
+Filename: pool/main/netrc_26.10_arm64.deb
+Size: 604144
+MD5sum: 91e0cbd16608db170f5f54a052ccb036
+SHA1: 54b8b4cdc63d394ed9699b455373fa62ed8fb467
+SHA256: d6f36444ddd37789b63985a6b8d4cbfda1524e5553ea1323d777c69b12542169
+Section: misc
+Priority: optional
+Multi-Arch: foreign
+Homepage: https://github.com/AceOfSnakes/NetRC
+Description: NetRC also known as Network remote control. The base idea of this project is to provide access to control your devices via local network. All devices should be configurable without changes in source code. All you need is to create device configuration file. Load it into application and control your device via network. Based on ideas and code from this project https://sourceforge.net/projects/avrpioremote/
+

@@ -1,0 +1,30 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Origin: Ace Of Snakes
+Label: Ace Of Snakes Repository
+Suite: stable
+Codename: stable
+Architectures: amd64 arm64
+Components: main
+Description: Custom Linux APT Package Repository
+Date: Sun, 25 Oct 2026 15:57:04 +0000
+SHA256:
+ a2d64ede1423b09d76709a751c9131809c779da1324b83ae2d23c46a79f76e5d 3449 main/binary-arm64/Packages
+ d16cbcdc629a9cac9ce85d6075e5991be27fb93a34cacb43396d184d2c3bf0b3 1259 main/binary-arm64/Packages.gz
+ da1f5e1c06ed9b2975e6a75743bb68ab839a44b5563ab3c69f38bd5d2d00a145 3449 main/binary-amd64/Packages
+ 65138ed6f86aff4679406239f6055d0b3bf0a2d78875d5f56819e251966b51c9 1258 main/binary-amd64/Packages.gz
+-----BEGIN PGP SIGNATURE-----
+
+iQGyBAEBCAAdFiEEXyQNmMRfaseh67DGcO/Wp0y6VHQFAmreJtAACgkQcO/Wp0y6
+VHSngQv2NqbX0ILgK24UfUpSmiQFpYLOS+n6aDTVGI+3GOcOoXKGC0hqCWvoR52u
+18N39c/86I1bJfil1FFF744+n+D6RZ2wz5S+t2FUEOpi9LBkWmG0TWZUojK44Lri
+lKMxOZP8USYX36p8nJru/hNiy+oB0qrL0y+F1gSKjHCntY395eQ9+2+1hjoKIi+Z
+D+k7hdDtUY+f31S2nyDRUXyUcAfuWK91Z8F7p83EksM/TXPAFxn6MxCFnTbwPdYn
+50B5aZ6zaJIYQvIKppaTEnJ49yc63NC786ch9Iz43ejruEGSLBrxV8x/miTaHBmL
+n8tg5Wni7Bp0gtbNsSKrCtMQ2/dI2HYxfdcn6/BeawZph+OXCAUWPMCZUJ13vNzR
+P38PbXOAgpC3qW06okHyFHXB6NqssNtAY8jCmOuKcRURzQdF7VC8pxvmdsDAU8Jo
+UF/sGMxb/DMJ/+CqIJhzBY+yyFAKqAOpgvV58GbGSxw/lU3u217je8V3h5yTlb5D
+Sf5K+ww=
+=mNRP
+-----END PGP SIGNATURE-----
