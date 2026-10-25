@@ -13,6 +13,7 @@
             background-color: var(--color-canvas-default);
             color: var(--color-fg-default);
             padding-top: 40px;
+            padding-bottom: 100px; /* Space to prevent footer overlap */
         }
         .repo-container {
             max-width: 850px;
@@ -40,16 +41,51 @@
             height: 100%;
             object-fit: cover;
         }
-        /* Custom adjustment to make sure the button and title align cleanly */
         .Box-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
         pre {
-            overflow-x: auto;  /* Adds a horizontal scrollbar only when the text overflows */
-            white-space: pre;  /* Keeps the text on a single long line so it triggers the scrollbar */
+            overflow-x: auto;
+            white-space: pre;
         }
+        
+        /* Floating Footer Layout */
+        .floating-footer {
+            position: fixed;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 850px;
+            background: rgba(30, 30, 30, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 12px 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+        }
+        .footer-links a {
+            color: #58a6ff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
         /* Automatic Light/Dark Mode Styling based on system preferences */
         @media (prefers-color-scheme: dark) {
             :root {
@@ -62,6 +98,16 @@
                 --color-accent-fg: #2f81f7;
             }
         }
+        @media (max-width: 600px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+            .footer-links a {
+                margin: 0 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -70,7 +116,6 @@
         <!-- Header Section with your Profile Image -->
         <header class="profile-header">
             <div class="avatar-frame">
-                <!-- Dynamically pulls your live GitHub profile avatar -->
                 <img src="https://github.com/aceofsnakes.png" alt="Profile Avatar">
             </div>
             <div>
@@ -95,7 +140,6 @@
                     </div>
                     <div class="Box-body">
                         <p class="f5 mb-2">Add the repository GPG key and register the source line:</p>
-                        <!-- Added ws-pre-wrap to fix formatting without horizontal scrolling -->
                         <pre class="color-bg-subtle p-3 border rounded-2 f6 ws-pre-wrap"><code id="apt-code">curl -fsSL https://aceofsnakes.github.io/aceofsnakes.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/aceofsnakes.gpg
 echo "deb [signed-by=/etc/apt/keyrings/aceofsnakes.gpg] https://aceofsnakes.github.io/apt stable main" | sudo tee /etc/apt/sources.list.d/aceofsnakes.list
 sudo apt update</code></pre>
@@ -103,7 +147,7 @@ sudo apt update</code></pre>
                 </div>
 
                 <!-- DNF Repository Block -->
-                <div class="Box Box--condensed">
+                <div class="Box Box--condensed mb-4">
                     <div class="Box-header">
                         <h3 class="Box-title">RHEL / Fedora / Rocky Linux (DNF) Installation</h3>
                         <button class="btn btn-sm btn-octicon" type="button" aria-label="Copy DNF commands" onclick="copyToClipboard('dnf-code', this)">
@@ -120,10 +164,37 @@ enabled=1
 gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://aceofsnakes.github.io/rpm/repomd.qg.key
+EOF
 
 sudo dnf check-update</code></pre>
                     </div>
                 </div>
+
+                <!-- Zypper Repository Block -->
+                <div class="Box Box--condensed">
+                    <div class="Box-header">
+                        <h3 class="Box-title">openSUSE / SLES (Zypper) Installation</h3>
+                        <button class="btn btn-sm btn-octicon" type="button" aria-label="Copy Zypper commands" onclick="copyToClipboard('zypper-code', this)">
+                            <svg class="octicon octicon-copy" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="Box-body">
+                        <p class="f5 mb-2">Create a repository configuration file under <code>/etc/zypp/repos.d/</code>:</p>
+                        <pre class="color-bg-subtle p-3 border rounded-2 f6 ws-pre-wrap"><code id="zypper-code">sudo tee /etc/zypp/repos.d/aceofsnakes.repo &lt;&lt;EOF
+[aceofsnakes]
+name=Ace Of Snakes Repository
+baseurl=https://aceofsnakes.github.io/rpm/
+type=rpm-md
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://aceofsnakes.github.io/rpm/repomd.qg.key
+EOF
+
+sudo zypper refresh</code></pre>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Right Side: Sidebar Metadata Card -->
@@ -141,27 +212,6 @@ sudo dnf check-update</code></pre>
         </div>
     </div>
 
-    <!-- JavaScript function to handle Clipboard logic -->
-    <script>
-    function copyToClipboard(elementId, button) {
-        const textToCopy = document.getElementById(elementId).innerText;
-        
-        navigator.clipboard.writeText(textToCopy).then(() => {
-            const originalContent = button.innerHTML;
-            
-            // Switch to a checkmark icon on success
-            button.innerHTML = `<svg class="octicon octicon-check color-fg-success" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg>`;
-            button.classList.add('color-fg-success');
-            
-            setTimeout(() => {
-                button.innerHTML = originalContent;
-                button.classList.remove('color-fg-success');
-            }, 2000);
-        }).catch(err => {
-            console.error('Failed to copy code block text: ', err);
-        });
-    }
-    </script>
 <!-- Floating Footer -->
 <div class="floating-footer">
     <div class="footer-content">
@@ -172,52 +222,5 @@ sudo dnf check-update</code></pre>
         </div>
     </div>
 </div>
-
-<style>
-.floating-footer {
-    position: fixed;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 800px;
-    background: rgba(30, 30, 30, 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 12px 24px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-}
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: rgba(255, 255, 255, 0.8);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-}
-.footer-links a {
-    color: #58a6ff;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
-}
-.footer-links a:hover {
-    text-decoration: underline;
-}
-@media (max-width: 500px) {
-    .footer-content {
-        flex-direction: column;
-        gap: 8px;
-        text-align: center;
-    }
-    .footer-links a {
-        margin: 0 10px;
-    }
-}
-</style>
-
-</body>
+    </body>
 </html>
