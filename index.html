@@ -162,8 +162,17 @@
                     </div>
                     <div class="Box-body">
                         <p class="f5 mb-2">Add the repository GPG key and register the source line:</p>
-                        <pre class="color-bg-subtle p-3 border rounded-2 f6 ws-pre-wrap"><code id="apt-code">curl -fsSL https://aceofsnakes.github.io/aceofsnakes.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/aceofsnakes.gpg
-echo "deb [signed-by=/etc/apt/keyrings/aceofsnakes.gpg] https://aceofsnakes.github.io/apt stable main" | sudo tee /etc/apt/sources.list.d/aceofsnakes.list
+                        <pre class="color-bg-subtle p-3 border rounded-2 f6 ws-pre-wrap"><code id="apt-code">curl -fsSL https://aceofsnakes.github.io/aceofsnakes.gpg | \
+sudo gpg --dearmor -o /etc/apt/keyrings/aceofsnakes.gpg
+sudo tee /etc/apt/sources.list.d/aceofsnakes.sources &lt;&lt;EOF
+Types: deb
+URIs: https://aceofsnakes.github.io/apt/
+Suites: stable
+Components: main
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/aceofsnakes.gpg
+EOF
+
 sudo apt update</code></pre>
                     </div>
                 </div>
