@@ -21,19 +21,32 @@ generate_html() {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title} | Archive</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.5.0/primer.css" rel="stylesheet" />
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background-color: #0d1117; color: #c9d1d9; padding: 40px 20px; margin: 0; line-height: 1.6; }
-        .container { max-width: 800px; margin: 0 auto; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        h1 { font-size: 24px; color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-top: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background-color: var(--color-canvas-default); color: var(--color-fg-default); padding: 40px 20px; margin: 0; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; background: var(--color-canvas-default); border: 1px solid #30363d; border-radius: 6px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        h1 { font-size: 24px; color: var(--color-fg-default); border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-top: 0; }
         .back-link { display: inline-block; margin-bottom: 20px; color: #8b949e; text-decoration: none; font-size: 14px; }
-        .back-link:hover { color: #58a6ff; }
+        .back-link:hover { }
         .file-list { list-style: none; padding: 0; margin: 0; }
         .file-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #21262d; }
         .file-item:last-child { border-bottom: none; }
-        .file-name { color: #58a6ff; text-decoration: none; font-weight: 500; font-family: monospace; word-break: break-all; }
+        .file-name { color: var(--color-fg-default); text-decoration: none; font-weight: 500; font-family: monospace; word-break: break-all; }
         .file-name:hover { text-decoration: underline; }
-        .file-size { color: #8b949e; font-size: 14px; font-family: monospace; }
+        .file-size { color: var(--color-fg-default); font-size: 14px; font-family: monospace; }
         .empty-msg { color: #8b949e; font-style: italic; }
+        /* Automatic Light/Dark Mode Styling based on system preferences */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-canvas-default: #0d1117;
+                --color-canvas-subtle: #161b22;
+                --color-fg-default: #e6edf3;
+                --color-fg-muted: #848d97;
+                --color-border-default: #30363d;
+                --color-border-muted: #21262d;
+                --color-accent-fg: #2f81f7;
+            }
+        }
     </style>
 </head>
 <body>
@@ -68,7 +81,7 @@ EOF
 }
 
 # Execute page configurations
-generate_html "apt/pool/main" "APT Package Pool" "${SITE_URL}/" "*.deb"
+generate_html "apt/pool/main" "DEB Package Pool" "${SITE_URL}/" "*.deb"
 generate_html "rpm" "RPM Package Pool" "${SITE_URL}/" "*.rpm"
 
 echo "Directory browser pages created successfully!"
