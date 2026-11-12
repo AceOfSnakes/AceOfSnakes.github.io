@@ -200,12 +200,13 @@ sudo apt update</code></pre>
                         </p>
                         <pre class="color-bg-subtle p-3 border rounded-2 f6 ws-pre-wrap"><code id="dnf-code">sudo tee /etc/yum.repos.d/aceofsnakes.repo &lt;&lt;EOF
 [aceofsnakes]
-name=Ace Of Snakes Repository
+name=Ace Of Snakes Repository \$basearch
 baseurl=https://aceofsnakes.github.io/rpm/
 enabled=1
 gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://aceofsnakes.github.io/rpm/repomd.qg.key
+includepkgs=*.\$basearch,*.noarch
 EOF
 
 sudo dnf check-update</code></pre>

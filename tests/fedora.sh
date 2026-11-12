@@ -1,10 +1,10 @@
-docker run --rm -it fedora:latest /bin/bash -c '
+docker run --rm -it fedora:45 /bin/bash -c '
   set -e
   echo "=== Testing Fedora/DNF Integration ==="
   
   # 1. Install fallback network download utilities
   dnf install -y curl
-sudo dnf config-manager addrepo  https://wmp.github.io/
+  #sudo dnf config-manager addrepo  https://wmp.github.io/
 
   
   # 2. Inject repository configuration file block
@@ -14,12 +14,13 @@ sudo dnf config-manager addrepo  https://wmp.github.io/
   mkdir -p /etc/dnf/repos.d
   sudo tee /etc/yum.repos.d/aceofsnakes.repo <<EOF
 [aceofsnakes]
-name=Ace Of Snakes Repository
+name=Ace Of Snakes Repository \$basearch
 baseurl=https://aceofsnakes.github.io/rpm/
 enabled=1
 gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://aceofsnakes.github.io/rpm/repomd.qg.key
+includepkgs=*.\$basearch,*.noarch
 EOF
 
   # 3. CRITICAL: Import your hosted GPG key into the RPM system keyring first
@@ -31,7 +32,7 @@ EOF
 
   # 4. Check if your packages are reachable and queryable
   echo "=== Available Target Packages ==="
-  dnf --repo=aceofsnakes ls
-  dnf  --help
+  dnf --disablerepo=* --enablerepo="aceofsnakes" list
+  # dnf  --help
   #sudo dnf5 install netrc
 '
