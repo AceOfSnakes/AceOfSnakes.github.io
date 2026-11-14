@@ -52,13 +52,3 @@ EOF
 
 sudo zypper refresh
 ```
-
-         <!--div class="floating-footer">
-                <div class="footer-content">
-                    <span>© 2026 Ace Of Snakes</span>
-                    <div class="footer-links">
-                        <a href="https://aceofsnakes.github.io/apt/pool/main">Browse DEB Packages</a>
-                        <a href="https://aceofsnakes.github.io/rpm/">Browse RPM Packages</a>
-                    </div>
-                </div>
-            </div-->
