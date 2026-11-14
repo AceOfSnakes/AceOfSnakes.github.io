@@ -11,10 +11,20 @@
     @media (max-width: 767px) { body { padding: 15px; } }
     pre { position: relative; }
     .copy-btn { position: absolute; top: 6px; right: 6px; padding: 3px 8px; font-size: 12px; cursor: pointer; border-radius: 4px; border: 1px solid #d0d7de; background: #f6f8fa; }
+    .avatar-frame {
+            border: 1px solid var(--color-border-default);
+            border-radius: 50%;
+            overflow: hidden;
+            width: 100px;
+            height: 100px;
+            margin-right: 24px;
+            flex-shrink: 0;
+    }
   </style>
 </head>
 <body class="markdown-body">
-  <div class="avatar-frame" style="vertical-align:top;"><img src="https://github.com/aceofsnakes.png" alt="Profile Avatar"><h1>Tests scripts - Ace Of Snakes Repository</h1><hr></div>
+  <div class="avatar-frame" style="vertical-align:top;"><img src="https://github.com/aceofsnakes.png" alt="Profile Avatar"></div>
+  <h1>Tests scripts - Ace Of Snakes Repository</h1>
   <div id="content">Loading README.md...</div>
   <script>
     fetch('README.md')
