@@ -1,6 +1,6 @@
-docker run --rm -it opensuse/tumbleweed /bin/bash -c '
+docker run --rm -it opensuse/${1:-tumbleweed} /bin/bash -c '
   set -e
-  echo "=== Testing openSUSE/Zypper Integration ==="
+  echo -e "\n=== Testing openSUSE/Zypper Integration ===\n"
   
   # 1. Install falling network dependencies
   zypper --non-interactive install curl
@@ -21,6 +21,6 @@ EOF
   zypper --no-gpg-checks refresh aceofsnakes
   
   # 4. Search package streams from your origin key target
-  echo "=== Available Target Packages ==="
+  echo -e "\n=== Available Target Packages ===\n"
   zypper packages --repo aceofsnakes
 '

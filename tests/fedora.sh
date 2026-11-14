@@ -1,6 +1,6 @@
-docker run --rm -it fedora:45 /bin/bash -c '
+docker run --rm -it fedora:${1:-44} /bin/bash -c '
   set -e
-  echo "=== Testing Fedora/DNF Integration ==="
+  echo -e "\n=== Testing Fedora/DNF Integration ===\n"
 
   # 2. Inject repository configuration file block
   mkdir -p /etc/dnf/repos.d
@@ -17,7 +17,7 @@ EOF
 
   dnf -y makecache
   # 4. Check if your packages are reachable and queryable
-  echo "=== Available Target Packages ==="
+  echo -e "\n=== Available Target Packages ===\n"
   dnf  repoquery --repo="aceofsnakes"
 
 '
