@@ -3,46 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Test scripts - Ace Of Snakes Repository</title>
+  <meta charset="UTF-8">
+  <title>Repository test scripts - Ace Of Snakes</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.8.1/github-markdown.min.css">
+  <link rel="stylesheet" href="/style.css">
   <script src="https://cdn.jsdelivr.net/npm/marked@15.0.7/marked.min.js"></script>
-  <style>
-    body { box-sizing: border-box; min-width: 200px; max-width: 980px; margin: 0 auto; padding: 45px; }
-    @media (max-width: 767px) { body { padding: 15px; } }
-    pre { position: relative; }
-    .copy-btn { position: absolute; top: 6px; right: 6px; padding: 3px 8px; font-size: 12px; cursor: pointer; border-radius: 4px; border: 1px solid #d0d7de; background: #f6f8fa; }
-    .avatar-frame {
-            border: 1px solid var(--color-border-default);
-            border-radius: 50%;
-            overflow: hidden;
-            width: 100px;
-            height: 100px;
-            margin-right: 24px;
-            flex-shrink: 0;
-    }
-  </style>
 </head>
 <body class="markdown-body">
-  <div class="avatar-frame" style="vertical-align:top;"><img src="https://github.com/aceofsnakes.png" alt="Profile Avatar"></div>
-  <h1>Test scripts - Ace Of Snakes Repository</h1>
+  <div class="top-bar">
+    <div class="avatar-frame">
+      <img src="https://github.com/aceofsnakes.png" alt="Profile Avatar">
+    </div>
+    <nav id="notes" class="header-frame">Loading MENU.md...</nav>
+  </div>
   <div id="content">Loading README.md...</div>
   <script>
-    fetch('README.md')
+    const copyIcon = `<svg class="octicon octicon-copy" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></svg>`;
+
+    const checkIcon = `<svg class="octicon octicon-check color-fg-success" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg>`;
+
+    fetch('MENU.md')
+      .then(r => r.text())
+      .then(md => {
+        document.getElementById('notes').innerHTML = marked.parse(md);
+      });
+    fetch('SIGN.md')
       .then(r => r.text())
       .then(md => {
         document.getElementById('content').innerHTML = marked.parse(md);
         document.querySelectorAll('pre').forEach(pre => {
           const btn = document.createElement('button');
           btn.className = 'copy-btn';
-          btn.textContent = 'Copy';
+          btn.setAttribute('aria-label', 'Copy code');
+          btn.innerHTML = copyIcon;
+
           btn.onclick = () => {
             navigator.clipboard.writeText(pre.querySelector('code').innerText);
-            btn.textContent = 'Copied!';
-            setTimeout(() => btn.textContent = 'Copy', 1500);
+            btn.innerHTML = checkIcon;
+            setTimeout(() => btn.innerHTML = copyIcon, 1500);
           };
+
           pre.appendChild(btn);
         });
-      });
+      }); 
   </script>
 </body>
 </html>
