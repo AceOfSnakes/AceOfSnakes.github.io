@@ -50,41 +50,27 @@
             overflow-x: auto;
             white-space: pre;
         }
-        
-        /* Floating Footer Layout */
-        .floating-footer {
-            position: fixed;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 850px;
-            background: rgba(30, 30, 30, 0.85);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 12px 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-        }
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: rgba(255, 255, 255, 0.8);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            font-size: 14px;
-        }
-        .footer-links a {
-            color: #58a6ff;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-        }
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
+    .floating-footer {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      max-width: 800px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--borderColor-default);
+      background-color: color-mix(in srgb, var(--bgColor-default) 70%, transparent);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      font-size: 14px;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }        
 
         /* Automatic Light/Dark Mode Styling based on system preferences */
         @media (prefers-color-scheme: dark) {
