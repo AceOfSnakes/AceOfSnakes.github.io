@@ -1,0 +1,116 @@
+﻿body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 45px 80px;
+}
+
+@media (max-width: 767px) {
+  body {
+    padding: 0 15px 75px;
+  }
+}
+
+pre {
+  position: relative;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  padding: 3px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid var(--borderColor-default);
+  background: var(--bgColor-default);
+  color: var(--fgColor-default);
+}
+
+/* Pinned Header */
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 0;
+  margin-bottom: 24px;
+  background-color: color-mix(in srgb, var(--bgColor-default) 80%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--borderColor-muted);
+}
+
+.avatar-frame {
+  border: 1px solid var(--borderColor-default);
+  border-radius: 50%;
+  overflow: hidden;
+  width: 112px;
+  height: 112px;
+  flex-shrink: 0;
+}
+
+.avatar-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.header-frame {
+  flex: 1;
+}
+
+.header-frame ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header-frame li + li {
+  margin-top: 0;
+}
+
+/* Floating Transparent Footer */
+.floating-footer {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 800px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--borderColor-default);
+  background-color: color-mix(in srgb, var(--bgColor-default) 70%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+/* Header & Footer Navigation Links */
+.markdown-body a,
+.header-frame a,
+.floating-footer a {
+  color: var(--fgColor-muted);
+  text-decoration: underline;
+  font-weight: 500;
+}
+.markdown-body a:hover,
+.header-frame a:hover,
+.header-frame a:hover,
+.floating-footer a:hover {
+  text-decoration: underline;
+}
