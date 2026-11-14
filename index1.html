@@ -27,7 +27,7 @@
       .then(md => {
         document.getElementById('notes').innerHTML = marked.parse(md);
       });
-    fetch('SIGN.md')
+    fetch('REPO.md')
       .then(r => r.text())
       .then(md => {
         document.getElementById('content').innerHTML = marked.parse(md);
