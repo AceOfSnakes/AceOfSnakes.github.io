@@ -22,7 +22,7 @@ Execute ps1 file
 ```
 powershell -ExecutionPolicy Bypass -File check.ps1
 ```
-
+&nbsp;
 ```powershell
 $KeyPath = "$env:TEMP\ace.gpg"
 
@@ -34,7 +34,6 @@ Get-ChildItem *.zip.asc | ForEach-Object {
 
 Remove-Item $KeyPath -Force
 ```
-
 one line command
 ```
 curl -fsSL https://aceofsnakes.github.io/aceofsnakes.gpg | gpg --dearmor > "%TEMP%\ace.gpg" && (for %F in (*.zip.asc) do gpgv --keyring "%TEMP%\ace.gpg" "%F" "%~nF") && del /f /q "%TEMP%\ace.gpg"
