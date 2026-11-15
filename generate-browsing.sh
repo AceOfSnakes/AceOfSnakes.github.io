@@ -12,6 +12,9 @@ generate_html() {
 
     echo "Generating index for: ${target_dir}"
     mkdir -p "${target_dir}"
+    
+    echo "| File | Size |" > "${target_dir}/CONTENT.md"
+    echo "| :--- | :--- |" >> "${target_dir}/CONTENT.md"
 
     # Populate directory matching patterns dynamically
     local count=0
@@ -19,7 +22,7 @@ generate_html() {
         if [ -e "${filepath}" ] && [ "$(basename "${filepath}")" != "index.html" ]; then
             filename=$(basename "${filepath}")
             filesize=$(du -sh "${filepath}" | awk '{print $1}')
-            echo "- [${filename}](${filename})" >> "${target_dir}/CONTENT.md"
+            echo "| [${filename}](${filename}) | ${filesize} |" >> "${target_dir}/CONTENT.md"
             count=$((count+1))
         fi
     done

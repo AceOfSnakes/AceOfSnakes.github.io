@@ -1,24 +1,10 @@
-[avrpioremote-qt5_26.08_aarch64.rpm](avrpioremote-qt5_26.08_aarch64.rpm)
-[avrpioremote-qt5_26.08_x86_64.rpm](avrpioremote-qt5_26.08_x86_64.rpm)
-[avrpioremote_26.08_aarch64.rpm](avrpioremote_26.08_aarch64.rpm)
-[avrpioremote_26.08_x86_64.rpm](avrpioremote_26.08_x86_64.rpm)
-[netrc_26.08_aarch64.rpm](netrc_26.08_aarch64.rpm)
-[netrc_26.08_x86_64.rpm](netrc_26.08_x86_64.rpm)
-[netrc_26.10_aarch64.rpm](netrc_26.10_aarch64.rpm)
-[netrc_26.10_x86_64.rpm](netrc_26.10_x86_64.rpm)
-[avrpioremote-qt5_26.08_aarch64.rpm](avrpioremote-qt5_26.08_aarch64.rpm)
-[avrpioremote-qt5_26.08_x86_64.rpm](avrpioremote-qt5_26.08_x86_64.rpm)
-[avrpioremote_26.08_aarch64.rpm](avrpioremote_26.08_aarch64.rpm)
-[avrpioremote_26.08_x86_64.rpm](avrpioremote_26.08_x86_64.rpm)
-[netrc_26.08_aarch64.rpm](netrc_26.08_aarch64.rpm)
-[netrc_26.08_x86_64.rpm](netrc_26.08_x86_64.rpm)
-[netrc_26.10_aarch64.rpm](netrc_26.10_aarch64.rpm)
-[netrc_26.10_x86_64.rpm](netrc_26.10_x86_64.rpm)
-- [avrpioremote-qt5_26.08_aarch64.rpm](avrpioremote-qt5_26.08_aarch64.rpm)
-- [avrpioremote-qt5_26.08_x86_64.rpm](avrpioremote-qt5_26.08_x86_64.rpm)
-- [avrpioremote_26.08_aarch64.rpm](avrpioremote_26.08_aarch64.rpm)
-- [avrpioremote_26.08_x86_64.rpm](avrpioremote_26.08_x86_64.rpm)
-- [netrc_26.08_aarch64.rpm](netrc_26.08_aarch64.rpm)
-- [netrc_26.08_x86_64.rpm](netrc_26.08_x86_64.rpm)
-- [netrc_26.10_aarch64.rpm](netrc_26.10_aarch64.rpm)
-- [netrc_26.10_x86_64.rpm](netrc_26.10_x86_64.rpm)
+| File | Size |
+| :--- | :--- |
+| [avrpioremote-qt5_26.08_aarch64.rpm](avrpioremote-qt5_26.08_aarch64.rpm) | 968K |
+| [avrpioremote-qt5_26.08_x86_64.rpm](avrpioremote-qt5_26.08_x86_64.rpm) | 1016K |
+| [avrpioremote_26.08_aarch64.rpm](avrpioremote_26.08_aarch64.rpm) | 944K |
+| [avrpioremote_26.08_x86_64.rpm](avrpioremote_26.08_x86_64.rpm) | 996K |
+| [netrc_26.08_aarch64.rpm](netrc_26.08_aarch64.rpm) | 872K |
+| [netrc_26.08_x86_64.rpm](netrc_26.08_x86_64.rpm) | 896K |
+| [netrc_26.10_aarch64.rpm](netrc_26.10_aarch64.rpm) | 872K |
+| [netrc_26.10_x86_64.rpm](netrc_26.10_x86_64.rpm) | 896K |
