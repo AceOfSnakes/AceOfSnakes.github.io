@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <title>Package Repository - Ace Of Snakes</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.8.1/github-markdown.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.5.0/primer.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/marked@15.0.7/marked.min.js"></script>
 </head>
@@ -18,48 +19,77 @@
     </div>
     <nav id="notes" class="header-frame">Loading MENU.md...</nav>
   </div>
-  <div id="content">Loading REPO.md...</div>
-  <script>
-    const copyIcon = `<svg class="octicon octicon-copy" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></svg>`;
 
-    const checkIcon = `<svg class="octicon octicon-check color-fg-success" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg>`;
+  <div class="Layout">
+    <div>
+      <div class="Box p-3">
+        <h4 class="f5 mb-2">Repository Info</h4>
+        <ul class="list-style-none f6 color-fg-muted">
+          <li class="mb-2"><strong>Status:</strong> <span class="Label Label--success">Active</span></li>
+          <li class="mb-2"><strong>Host:</strong> GitHub Pages</li>
+          <li class="mb-3"><strong>Arch:</strong> x86_64, amd64, aarch64, arm64</li>
 
-    fetch('MENU.md')
-      .then(r => r.text())
-      .then(md => {
-        document.getElementById('notes').innerHTML = marked.parse(md);
-      });
-    fetch('REPO.md')
-      .then(r => r.text())
-      .then(md => {
-        document.getElementById('content').innerHTML = marked.parse(md);
+          <!-- Packages Section: One package per line -->
+          <li class="border-top pt-2">
+            <strong>Packages:</strong>
+            <ul class="pl-3 mt-1 list-style-none" style="line-height: 1.6;">
+              <li class="text-mono color-fg-muted">avrpioremote</li>
+              <li class="text-mono color-fg-muted">avrpioremote-qt5</li>
+              <li class="text-mono color-fg-muted">netrc</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="Layout">
+      <div class="Layout Box p-3">
+      <div id="content">Loading REPO.md...</div>
+      <!-- Right Side: Sidebar Metadata Card -->
+       </div>
+    </div>
+  </div>
+  </body>
+    <script>
+      const copyIcon = `<svg class="octicon octicon-copy" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></svg>`;
 
-        document.querySelectorAll('pre').forEach(pre => {
-          // 1. Create the outer wrapper
-          const wrapper = document.createElement('div');
-          wrapper.className = 'code-wrapper';
+      const checkIcon = `<svg class="octicon octicon-check color-fg-success" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg>`;
 
-          // 2. Wrap the <pre> element inside it
-          pre.parentNode.insertBefore(wrapper, pre);
-          wrapper.appendChild(pre);
+      fetch('MENU.md')
+        .then(r => r.text())
+        .then(md => {
+          document.getElementById('notes').innerHTML = marked.parse(md);
+        });
+      fetch('REPO.md')
+        .then(r => r.text())
+        .then(md => {
+          document.getElementById('content').innerHTML = marked.parse(md);
 
-          // 3. Create the button
-          const btn = document.createElement('button');
-          btn.className = 'copy-btn';
-          btn.setAttribute('aria-label', 'Copy code');
-          btn.innerHTML = copyIcon;
+          document.querySelectorAll('pre').forEach(pre => {
+            // 1. Create the outer wrapper
+            const wrapper = document.createElement('div');
+            wrapper.className = 'code-wrapper';
 
-          btn.onclick = () => {
-            navigator.clipboard.writeText(pre.querySelector('code').innerText);
-            btn.innerHTML = checkIcon;
-            setTimeout(() => btn.innerHTML = copyIcon, 1500);
-          };
+            // 2. Wrap the <pre> element inside it
+            pre.parentNode.insertBefore(wrapper, pre);
+            wrapper.appendChild(pre);
 
-          // 4. Append the button to the wrapper (not <pre>)
-          wrapper.appendChild(btn);
-        })
-      });
-  </script>
+            // 3. Create the button
+            const btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.setAttribute('aria-label', 'Copy code');
+            btn.innerHTML = copyIcon;
+
+            btn.onclick = () => {
+              navigator.clipboard.writeText(pre.querySelector('code').innerText);
+              btn.innerHTML = checkIcon;
+              setTimeout(() => btn.innerHTML = copyIcon, 1500);
+            };
+
+            // 4. Append the button to the wrapper (not <pre>)
+            wrapper.appendChild(btn);
+          })
+        });
+    </script>
 </body>
 
 </html>
