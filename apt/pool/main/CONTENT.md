@@ -1,6 +1,6 @@
 | File | Size | SHA-256 |
-| :--- | :--- | :--- |
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+| :--- | ---: | :--- |
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 | [avrpioremote-qt5_26.08_amd64.deb](avrpioremote-qt5_26.08_amd64.deb) | 836K | `c117653b8a730b823660146c1c9d0af5e1103370210c6432605618a8c5d49806` |
 | [avrpioremote-qt5_26.08_arm64.deb](avrpioremote-qt5_26.08_arm64.deb) | 792K | `43a0b4d307eb3c32d3a1f05546bfbed5b26b7f9a76280588edd4a21a6209b7eb` |
 | [avrpioremote_26.08_amd64.deb](avrpioremote_26.08_amd64.deb) | 816K | `2af96b599dc6fdf93063d026c2ab2a150615f5bd5c564fb100bad0587ee494af` |
