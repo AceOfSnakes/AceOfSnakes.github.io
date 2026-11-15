@@ -27,25 +27,37 @@
       .then(md => {
         document.getElementById('notes').innerHTML = marked.parse(md);
       });
-    fetch('SIGN.md')
-      .then(r => r.text())
-      .then(md => {
-        document.getElementById('content').innerHTML = marked.parse(md);
-        document.querySelectorAll('pre').forEach(pre => {
-          const btn = document.createElement('button');
-          btn.className = 'copy-btn';
-          btn.setAttribute('aria-label', 'Copy code');
-          btn.innerHTML = copyIcon;
+fetch('SIGN.md')
+  .then(r => r.text())
+  .then(md => {
+    document.getElementById('content').innerHTML = marked.parse(md);
 
-          btn.onclick = () => {
-            navigator.clipboard.writeText(pre.querySelector('code').innerText);
-            btn.innerHTML = checkIcon;
-            setTimeout(() => btn.innerHTML = copyIcon, 1500);
-          };
+    document.querySelectorAll('pre').forEach(pre => {
+      // 1. Create the outer wrapper
+      const wrapper = document.createElement('div');
+      wrapper.className = 'code-wrapper';
 
-          pre.appendChild(btn);
-        });
-      }); 
+      // 2. Wrap the <pre> element inside it
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+
+      // 3. Create the button
+      const btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.setAttribute('aria-label', 'Copy code');
+      btn.innerHTML = copyIcon;
+
+      btn.onclick = () => {
+        navigator.clipboard.writeText(pre.querySelector('code').innerText);
+        btn.innerHTML = checkIcon;
+        setTimeout(() => btn.innerHTML = copyIcon, 1500);
+      };
+
+      // 4. Append the button to the wrapper (not <pre>)
+      wrapper.appendChild(btn);
+    });
+  });
+
   </script>
 </body>
 </html>
