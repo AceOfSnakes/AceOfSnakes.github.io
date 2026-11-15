@@ -15,9 +15,9 @@ generate_html() {
     
 cat << 'EOF' > "${target_dir}/CONTENT.md"
 | File | Size | SHA-256 |
-| :--- | :--- | :--- |
+| :--- | ---: | :--- |
 EOF
-
+echo "|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;" >> "${target_dir}/CONTENT.md"
 local count=0
 
 # Quote the directory path, leave the glob pattern unquoted so it expands
