@@ -104,8 +104,8 @@ pre {
   .code-wrapper {
     position: relative;
     max-width: 100%;
-    background: #f6f8fa;
-    border: 1px solid #d0d7de;
+    background: var(--bgColor-default);;
+    border: 1px solid var(--borderColor-muted);
     border-radius: 6px;
   }
 
@@ -126,11 +126,11 @@ pre {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--borderColor-default);
+    border: 1px solid var(--borderColor-muted);
     background: var(--bgColor-default);
     color: var(--fgColor-default);
   }
 
   .copy-btn:hover {
-    background: #f3f4f6;
+    background: var(--borderColor-muted);;
   }

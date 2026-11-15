@@ -22,6 +22,7 @@ Execute ps1 file
 ```
 powershell -ExecutionPolicy Bypass -File check.ps1
 ```
+
 ```powershell
 $KeyPath = "$env:TEMP\ace.gpg"
 

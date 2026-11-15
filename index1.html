@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <title>Package Repository - Ace Of Snakes</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.8.1/github-markdown.min.css">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/marked@15.0.7/marked.min.js"></script>
 </head>
 <body class="markdown-body">
@@ -27,11 +27,21 @@
       .then(md => {
         document.getElementById('notes').innerHTML = marked.parse(md);
       });
-    fetch('REPO.md')
+     fetch('REPO.md')
       .then(r => r.text())
       .then(md => {
         document.getElementById('content').innerHTML = marked.parse(md);
+
         document.querySelectorAll('pre').forEach(pre => {
+          // 1. Create the outer wrapper
+          const wrapper = document.createElement('div');
+          wrapper.className = 'code-wrapper';
+
+          // 2. Wrap the <pre> element inside it
+          pre.parentNode.insertBefore(wrapper, pre);
+          wrapper.appendChild(pre);
+
+          // 3. Create the button
           const btn = document.createElement('button');
           btn.className = 'copy-btn';
           btn.setAttribute('aria-label', 'Copy code');
@@ -43,9 +53,9 @@
             setTimeout(() => btn.innerHTML = copyIcon, 1500);
           };
 
-          pre.appendChild(btn);
+          // 4. Append the button to the wrapper (not <pre>)
+          wrapper.appendChild(btn);
         });
-      }); 
   </script>
 </body>
 </html>
