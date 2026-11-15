@@ -1,5 +1,5 @@
 | File | Size | SHA-256 |
-| :--- | :--- | :--- |
+| :--- | ---: | :--- |
 |&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 | [avrpioremote-qt5_26.08_aarch64.rpm](avrpioremote-qt5_26.08_aarch64.rpm) | 968K | `5974d1d32d6c88dd5a92819cb79fccfaee2190b0bd99e5786c62dbe7654d3cf2` |
 | [avrpioremote-qt5_26.08_x86_64.rpm](avrpioremote-qt5_26.08_x86_64.rpm) | 1016K | `1e44e229c0d46fd6992ab8cffb6e47b739915baa46cb1aba164d5ebafb3ce083` |
