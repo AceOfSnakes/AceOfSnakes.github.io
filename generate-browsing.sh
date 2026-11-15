@@ -19,7 +19,7 @@ generate_html() {
         if [ -e "${filepath}" ] && [ "$(basename "${filepath}")" != "index.html" ]; then
             filename=$(basename "${filepath}")
             filesize=$(du -sh "${filepath}" | awk '{print $1}')
-            echo "[${filename}](${filename})" >> "${target_dir}/CONTENT.md"
+            echo "- [${filename}](${filename})" >> "${target_dir}/CONTENT.md"
             count=$((count+1))
         fi
     done
