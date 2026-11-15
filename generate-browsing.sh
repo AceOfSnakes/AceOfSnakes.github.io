@@ -13,71 +13,20 @@ generate_html() {
     echo "Generating index for: ${target_dir}"
     mkdir -p "${target_dir}"
 
-    # Start writing HTML template
-    cat <<EOF > "${target_dir}/index.html"
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${title} | Archive</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.5.0/primer.css" rel="stylesheet" />
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background-color: var(--color-canvas-default); color: var(--color-fg-default); padding: 40px 20px; margin: 0; line-height: 1.6; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--color-canvas-default); border: 1px solid #30363d; border-radius: 6px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        h1 { font-size: 24px; color: var(--color-fg-default); border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-top: 0; }
-        .back-link { display: inline-block; margin-bottom: 20px; color: #8b949e; text-decoration: none; font-size: 14px; }
-        .back-link:hover { }
-        .file-list { list-style: none; padding: 0; margin: 0; }
-        .file-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #21262d; }
-        .file-item:last-child { border-bottom: none; }
-        .file-name { color: var(--color-fg-default); text-decoration: none; font-weight: 500; font-family: monospace; word-break: break-all; }
-        .file-name:hover { text-decoration: underline; }
-        .file-size { color: var(--color-fg-default); font-size: 14px; font-family: monospace; }
-        .empty-msg { color: #8b949e; font-style: italic; }
-        /* Automatic Light/Dark Mode Styling based on system preferences */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --color-canvas-default: #0d1117;
-                --color-canvas-subtle: #161b22;
-                --color-fg-default: #e6edf3;
-                --color-fg-muted: #848d97;
-                --color-border-default: #30363d;
-                --color-border-muted: #21262d;
-                --color-accent-fg: #2f81f7;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <a class="back-link" href="${parent_path}">← Back</a>
-        <h1>${title}</h1>
-        <ul class="file-list">
-EOF
-
     # Populate directory matching patterns dynamically
     local count=0
     for filepath in ${target_dir}/${file_pattern}; do
         if [ -e "${filepath}" ] && [ "$(basename "${filepath}")" != "index.html" ]; then
             filename=$(basename "${filepath}")
             filesize=$(du -sh "${filepath}" | awk '{print $1}')
-            echo "            <li class=\"file-item\"><a class=\"file-name\" href=\"${filename}\">${filename}</a><span class=\"file-size\">${filesize}</span></li>" >> "${target_dir}/index.html"
+            echo "[${filename}](${filename})" >> "${target_dir}/CONTENT.md"
             count=$((count+1))
         fi
     done
 
     if [ $count -eq 0 ]; then
-        echo "            <li class=\"empty-msg\">No packages found in this directory.</li>" >> "${target_dir}/index.html"
+        echo "No packages found in this directory" >> "${target_dir}/CONTENT.md"
     fi
-
-    # Close HTML layout blocks
-    cat <<EOF >> "${target_dir}/index.html"
-        </ul>
-    </div>
-</body>
-</html>
-EOF
 }
 
 # Execute page configurations
